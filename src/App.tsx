@@ -3,6 +3,7 @@ import ChatBubbleOutline from "@mui/icons-material/ChatBubbleOutline";
 import PeopleAltOutlined from "@mui/icons-material/PeopleAltOutlined";
 import StarOutlineRounded from "@mui/icons-material/StarOutlineRounded";
 import VillaOutlined from "@mui/icons-material/VillaOutlined";
+import Logout from "@mui/icons-material/Logout";
 import CssBaseline from "@mui/material/CssBaseline";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import {
@@ -57,7 +58,7 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
 
       if (profileObj) {
-        const response = await fetch("http://localhost:8080/api/v1/users", {
+        const response = await fetch("https://nalongo-dashboard-server.onrender.com/api/v1/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -126,7 +127,7 @@ function App() {
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
         <Refine
-          dataProvider={dataProvider("http://localhost:8080/api/v1")}
+          dataProvider={dataProvider("https://nalongo-dashboard-server.onrender.com/api/v1")}
           notificationProvider={useNotificationProvider}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
@@ -160,6 +161,12 @@ function App() {
               options: { label: "My Profile " },
               list: MyProfile,
               icon: <AccountCircleOutlined />,
+            },
+            {
+              name: "login",
+              options: { label: "Login " },
+              list: Login,
+              icon: <Logout />,
             },
           ]}
           Title={Title}

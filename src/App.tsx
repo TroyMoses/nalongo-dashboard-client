@@ -3,6 +3,7 @@ import ChatBubbleOutline from "@mui/icons-material/ChatBubbleOutline";
 import PeopleAltOutlined from "@mui/icons-material/PeopleAltOutlined";
 import StarOutlineRounded from "@mui/icons-material/StarOutlineRounded";
 import VillaOutlined from "@mui/icons-material/VillaOutlined";
+import Logout from "@mui/icons-material/Logout";
 import CssBaseline from "@mui/material/CssBaseline";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import {
@@ -160,6 +161,12 @@ function App() {
               options: { label: "My Profile " },
               list: MyProfile,
               icon: <AccountCircleOutlined />,
+            },
+            {
+              name: "login",
+              options: { label: "Login " },
+              list: Login,
+              icon: <Logout />,
             },
           ]}
           Title={Title}

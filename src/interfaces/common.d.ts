@@ -14,15 +14,15 @@ export interface ProfileProps {
   name: string;
   avatar: string;
   email: string;
-  properties: Array | undefined;
+  children: Array | undefined;
 }
 
-export interface PropertyProps {
+export interface ChildProps {
   _id: string;
-  title: string;
-  description: string;
-  location: string;
-  price: string;
+  name: string;
+  levelOfNeed: string;
+  grade: string;
+  donations: string;
   photo: string;
   creator: string;
 }
@@ -37,5 +37,18 @@ export interface FormProps {
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;
   handleImageChange: (file) => void;
   onFinishHandler: (data: FieldValues) => Promise<void> | void;
-  propertyImage: { name: string; url: string };
+  childImage: { name: string; url: string };
+}
+
+export interface LeaderFormProps {
+  type: string;
+  register: any;
+  onFinish: (
+    values: FieldValues,
+  ) => Promise<void | CreateResponse<BaseRecord> | UpdateResponse<BaseRecord>>;
+  formLoading: boolean;
+  handleSubmit: FormEventHandler<HTMLFormElement> | undefined;
+  handleImageChange: (file) => void;
+  onFinishHandler: (data: FieldValues) => Promise<void> | void;
+  leaderImage: { name: string; url: string };
 }

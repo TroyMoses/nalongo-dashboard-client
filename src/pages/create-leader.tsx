@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useGetIdentity } from "@refinedev/core";
 import { useForm } from "@refinedev/react-hook-form";
-import type { FieldValues } from "react-hook-form";
-import Form from "components/common/Form";
 
-const CreateProperty = () => {
+import type { FieldValues } from "react-hook-form";
+
+import LeaderForm from "components/common/LeaderForm";
+
+const CreateLeader = () => {
   const { data: user } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
   });
-  const [propertyImage, setPropertyImage] = useState({ name: "", url: "" });
+  const [leaderImage, setLeaderImage] = useState({ name: "", url: "" });
   const {
     refineCore: { onFinish, formLoading },
     register,
@@ -24,32 +26,31 @@ const CreateProperty = () => {
       });
 
     reader(file).then((result: string) =>
-      setPropertyImage({ name: file?.name, url: result }),
+    setLeaderImage({ name: file?.name, url: result }),
     );
   };
 
   const onFinishHandler = async (data: FieldValues) => {
-    if (!propertyImage.name) return alert("Please upload a property image");
+    if (!leaderImage.name) return alert("Please select an image");
 
     await onFinish({
       ...data,
-      photo: propertyImage.url,
+      photo: leaderImage.url,
       email: user.email,
     });
   };
 
   return (
-    <Form
-      type="Edit"
+    <LeaderForm
+      type="Create"
       register={register}
       onFinish={onFinish}
       formLoading={formLoading}
       handleSubmit={handleSubmit}
       handleImageChange={handleImageChange}
       onFinishHandler={onFinishHandler}
-      propertyImage={propertyImage}
+      leaderImage={leaderImage}
     />
   );
 };
-
-export default CreateProperty;
+export default CreateLeader;

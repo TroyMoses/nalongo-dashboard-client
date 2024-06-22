@@ -9,7 +9,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 
-import type { FormProps } from "interfaces/common";
+import type { LeaderFormProps } from "interfaces/common";
 import CustomButton from "./CustomButton";
 
 const Form = ({
@@ -19,12 +19,12 @@ const Form = ({
   handleImageChange,
   formLoading,
   onFinishHandler,
-  childImage,
-}: FormProps) => {
+  leaderImage,
+}: LeaderFormProps) => {
   return (
     <Box>
       <Typography fontSize={25} fontWeight={700} color="#11142d">
-        {type} a Child
+        {type} a Leader
       </Typography>
 
       <Box mt={2.5} borderRadius="15px" padding="20px" bgcolor="#fcfcfc">
@@ -47,7 +47,7 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Child name
+              Enter Leader name
             </FormHelperText>
             <TextField
               fullWidth
@@ -125,7 +125,7 @@ const Form = ({
                   color: "#11142d",
                 }}
               >
-                Enter Child Donations
+                Enter Leader Donations
               </FormHelperText>
               <TextField
                 fullWidth
@@ -168,7 +168,7 @@ const Form = ({
                 fontWeight={500}
                 my="10px"
               >
-                Child Photo
+                Leader Photo
               </Typography>
 
               <Button
@@ -196,7 +196,7 @@ const Form = ({
               color="#808191"
               sx={{ wordBreak: "break-all" }}
             >
-              {childImage?.name}
+              {leaderImage?.name}
             </Typography>
           </Stack>
 

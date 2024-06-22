@@ -1,11 +1,12 @@
 // common
 import Profile from "./common/Profile";
-import PropertyCard from "./common/PropertyCard";
+import ChildCard from "./common/ChildCard";
+import LeaderCard from "./common/LeaderCard";
 import CustomButton from "./common/CustomButton";
 
 // charts
 import PieChart from "./charts/PieChart";
-import PropertyReferrals from "./charts/PropertyReferrals";
+import ChildReferrals from "./charts/ChildReferrals";
 import TotalRevenue from "./charts/TotalRevenue";
 
 // agent
@@ -16,10 +17,11 @@ import TopAgent from "./home/TopAgent";
 
 export {
   Profile,
-  PropertyCard,
+  ChildCard,
+  LeaderCard,
   CustomButton,
   PieChart,
-  PropertyReferrals,
+  ChildReferrals,
   TotalRevenue,
   AgentCard,
   TopAgent,

@@ -6,11 +6,11 @@ import type { FieldValues } from "react-hook-form";
 
 import Form from "components/common/Form";
 
-const CreateProperty = () => {
+const CreateChild = () => {
   const { data: user } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
   });
-  const [propertyImage, setPropertyImage] = useState({ name: "", url: "" });
+  const [childImage, setChildImage] = useState({ name: "", url: "" });
   const {
     refineCore: { onFinish, formLoading },
     register,
@@ -26,16 +26,16 @@ const CreateProperty = () => {
       });
 
     reader(file).then((result: string) =>
-      setPropertyImage({ name: file?.name, url: result }),
+    setChildImage({ name: file?.name, url: result }),
     );
   };
 
   const onFinishHandler = async (data: FieldValues) => {
-    if (!propertyImage.name) return alert("Please select an image");
+    if (!childImage.name) return alert("Please select an image");
 
     await onFinish({
       ...data,
-      photo: propertyImage.url,
+      photo: childImage.url,
       email: user.email,
     });
   };
@@ -49,8 +49,8 @@ const CreateProperty = () => {
       handleSubmit={handleSubmit}
       handleImageChange={handleImageChange}
       onFinishHandler={onFinishHandler}
-      propertyImage={propertyImage}
+      childImage={childImage}
     />
   );
 };
-export default CreateProperty;
+export default CreateChild;

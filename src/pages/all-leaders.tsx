@@ -9,9 +9,9 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 
-import { PropertyCard, CustomButton } from "components";
+import {  LeaderCard, CustomButton } from "components";
 
-const AllProperties = () => {
+const AllLeaders = () => {
   const navigate = useNavigate();
 
   const {
@@ -26,12 +26,12 @@ const AllProperties = () => {
     setFilters,
   } = useTable();
 
-  const allProperties = data?.data ?? [];
+  const allLeaders = data?.data ?? [];
 
-  const currentPrice = sorter.find((item) => item.field === "price")?.order;
+  const currentDonation = sorter.find((item) => item.field === "donations")?.order;
 
   const toggleSort = (field: string) => {
-    setSorter([{ field, order: currentPrice === "asc" ? "desc" : "asc" }]);
+    setSorter([{ field, order: currentDonation === "asc" ? "desc" : "asc" }]);
   };
 
   const currentFilterValues = useMemo(() => {
@@ -40,9 +40,9 @@ const AllProperties = () => {
     );
 
     return {
-      title: logicalFilters.find((item) => item.field === "title")?.value || "",
-      propertyType:
-        logicalFilters.find((item) => item.field === "propertyType")?.value ||
+      name: logicalFilters.find((item) => item.field === "name")?.value || "",
+      leaderShipType:
+        logicalFilters.find((item) => item.field === "leaderShipType")?.value ||
         "",
     };
   }, [filters]);
@@ -55,9 +55,9 @@ const AllProperties = () => {
       <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
         <Stack direction="column" width="100%">
           <Typography fontSize={25} fontWeight={700} color="#11142d">
-            {!allProperties.length
-              ? "There are no properties"
-              : "All Properties"}
+            {!allLeaders.length
+              ? "There are no leaders"
+              : "All Leaders"}
           </Typography>
           <Box
             mb={2}
@@ -74,20 +74,20 @@ const AllProperties = () => {
               mb={{ xs: "20px", sm: 0 }}
             >
               <CustomButton
-                title={`Sort price ${currentPrice === "asc" ? "↑" : "↓"}`}
-                handleClick={() => toggleSort("price")}
+                title={`Sort donations ${currentDonation === "asc" ? "↑" : "↓"}`}
+                handleClick={() => toggleSort("donations")}
                 backgroundColor="#475be8"
                 color="#fcfcfc"
               />
               <TextField
                 variant="outlined"
                 color="info"
-                placeholder="Search by title"
-                value={currentFilterValues.title}
+                placeholder="Search by name"
+                value={currentFilterValues.name}
                 onChange={(e) => {
                   setFilters([
                     {
-                      field: "title",
+                      field: "name",
                       operator: "contains",
                       value: e.currentTarget.value
                         ? e.currentTarget.value
@@ -103,12 +103,12 @@ const AllProperties = () => {
                 required
                 inputProps={{ "aria-label": "Without label" }}
                 defaultValue=""
-                value={currentFilterValues.propertyType}
+                value={currentFilterValues.leaderShipType}
                 onChange={(e) => {
                   setFilters(
                     [
                       {
-                        field: "propertyType",
+                        field: "leaderShipType",
                         operator: "eq",
                         value: e.target.value,
                       },
@@ -119,14 +119,8 @@ const AllProperties = () => {
               >
                 <MenuItem value="">All</MenuItem>
                 {[
-                  "Apartment",
-                  "Villa",
-                  "Farmhouse",
-                  "Condos",
-                  "Townhouse",
-                  "Duplex",
-                  "Studio",
-                  "Chalet",
+                  "Board Member",
+                  "Leadership Team",
                 ].map((type) => (
                   <MenuItem key={type} value={type.toLowerCase()}>
                     {type}
@@ -140,8 +134,8 @@ const AllProperties = () => {
 
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <CustomButton
-          title="Add Property"
-          handleClick={() => navigate("/properties/create")}
+          title="Add Leader"
+          handleClick={() => navigate("/leaders/create")}
           backgroundColor="#475be8"
           color="#fcfcfc"
           icon={<Add />}
@@ -149,19 +143,20 @@ const AllProperties = () => {
       </Stack>
 
       <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
-        {allProperties?.map((property) => (
-          <PropertyCard
-            key={property._id}
-            id={property._id}
-            title={property.title}
-            location={property.location}
-            price={property.price}
-            photo={property.photo}
+        {allLeaders?.map((leader) => (
+          <LeaderCard
+            key={leader._id}
+            id={leader._id}
+            name={leader.name}
+            leaderShipType={leader.leaderShipType}
+            position={leader.position}
+            donations={leader.donations}
+            photo={leader.photo}
           />
         ))}
       </Box>
 
-      {allProperties.length > 0 && (
+      {allLeaders.length > 0 && (
         <Box display="flex" gap={2} mt={3} flexWrap="wrap">
           <CustomButton
             title="Previous"
@@ -210,4 +205,4 @@ const AllProperties = () => {
   );
 };
 
-export default AllProperties;
+export default AllLeaders;

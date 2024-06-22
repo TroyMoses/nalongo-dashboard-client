@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import type { ProfileProps, PropertyProps } from "interfaces/common";
-import PropertyCard from "./PropertyCard";
+import type { ProfileProps, ChildProps } from "interfaces/common";
+import ChildCard from "./ChildCard";
 
 function checkImage(url: any) {
   const img = new Image();
@@ -14,7 +14,7 @@ function checkImage(url: any) {
   return img.width !== 0 && img.height !== 0;
 }
 
-const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
+const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
   <Box>
     <Typography fontSize={25} fontWeight={700} color="#11142D">
       {type} Profile
@@ -136,10 +136,10 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
       </Box>
     </Box>
 
-    {properties.length > 0 && (
+    {children.length > 0 && (
       <Box mt={2.5} borderRadius="15px" padding="20px" bgcolor="#FCFCFC">
         <Typography fontSize={18} fontWeight={600} color="#11142D">
-          {type} Properties
+          {type} Children
         </Typography>
 
         <Box
@@ -150,14 +150,15 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
             gap: 2.5,
           }}
         >
-          {properties?.map((property: PropertyProps) => (
-            <PropertyCard
-              key={property._id}
-              id={property._id}
-              title={property.title}
-              location={property.location}
-              price={property.price}
-              photo={property.photo}
+          {children?.map((child: ChildProps) => (
+            <ChildCard
+              key={child._id}
+              id={child._id}
+              levelOfNeed={child.levelOfNeed}
+              name={child.name}
+              grade={child.grade}
+              donations={child.donations}
+              photo={child.photo}
             />
           ))}
         </Box>

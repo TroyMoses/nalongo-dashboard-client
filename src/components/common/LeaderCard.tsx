@@ -7,19 +7,20 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
 
-import type { PropertyCardProps } from "interfaces/property";
+import type { LeaderCardProps } from "interfaces/leader";
 
-const PropertyCard = ({
+const LeaderCard = ({
   id,
-  title,
-  location,
-  price,
+  name,
+  position,
+  leaderShipType,
+  donations,
   photo,
-}: PropertyCardProps) => {
+}: LeaderCardProps) => {
   return (
     <Card
       component={Link}
-      to={`/properties/show/${id}`}
+      to={`/leaders/show/${id}`}
       sx={{
         maxWidth: "330px",
         padding: "10px",
@@ -49,7 +50,7 @@ const PropertyCard = ({
       >
         <Stack direction="column" gap={1}>
           <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {title}
+            {name}
           </Typography>
           <Stack direction="row" gap={0.5} alignItems="flex-start">
             <Place
@@ -60,7 +61,7 @@ const PropertyCard = ({
               }}
             />
             <Typography fontSize={14} color="#808191">
-              {location}
+              {position}
             </Typography>
           </Stack>
         </Stack>
@@ -72,7 +73,7 @@ const PropertyCard = ({
           height="fit-content"
         >
           <Typography fontSize={12} fontWeight={600} color="#475be8">
-            ${price}
+            {leaderShipType}
           </Typography>
         </Box>
       </CardContent>
@@ -80,4 +81,4 @@ const PropertyCard = ({
   );
 };
 
-export default PropertyCard;
+export default LeaderCard;

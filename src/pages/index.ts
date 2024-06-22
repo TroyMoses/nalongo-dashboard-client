@@ -1,21 +1,32 @@
 import AgentProfile from "./agent-profile";
 import Agents from "./agent";
-import AllProperties from "./all-properties";
-import CreateProperty from "./create-property";
+
+import AllChildren from "./all-children";
+import CreateChild from "./create-child";
+import ChildDetails from "./child-details";
+import EditChild from "./edit-child";
+
+import AllLeaders from "./all-leaders";
+import CreateLeader from "./create-leader";
+import LeaderDetails from "./leader-details";
+import EditLeader from "./edit-leader";
+
 import Home from "./home";
 import { Login } from "./login";
 import MyProfile from "./my-profile";
-import PropertyDetails from "./property-details";
-import EditProperty from "./edit-property";
 
 export {
   AgentProfile,
   Agents,
-  AllProperties,
-  CreateProperty,
+  AllChildren,
+  CreateChild,
+  ChildDetails,
+  EditChild,
+  AllLeaders,
+  CreateLeader,
+  LeaderDetails,
+  EditLeader,
   Home,
   Login,
   MyProfile,
-  PropertyDetails,
-  EditProperty,
 };

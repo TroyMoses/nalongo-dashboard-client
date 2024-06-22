@@ -29,13 +29,17 @@ import { parseJwt } from "utils/parse-jwt";
 import {
   AgentProfile,
   Agents,
-  AllProperties,
-  CreateProperty,
-  EditProperty,
+  AllChildren,
+  CreateChild,
+  EditChild,
+  ChildDetails,
+  AllLeaders,
+  CreateLeader,
+  EditLeader,
+  LeaderDetails,
   Home,
   Login,
   MyProfile,
-  PropertyDetails,
 } from "pages";
 
 const axiosInstance = axios.create();
@@ -58,7 +62,7 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
 
       if (profileObj) {
-        const response = await fetch("https://nalongo-dashboard-server.onrender.com/api/v1/users", {
+        const response = await fetch("http://localhost:8080/api/v1/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -127,34 +131,33 @@ function App() {
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
         <Refine
-          dataProvider={dataProvider("https://nalongo-dashboard-server.onrender.com/api/v1")}
+          dataProvider={dataProvider("http://localhost:8080/api/v1")}
           notificationProvider={useNotificationProvider}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
           resources={[
             {
-              name: "properties",
-              list: AllProperties,
-              show: PropertyDetails,
-              create: CreateProperty,
-              edit: EditProperty,
+              name: "children",
+              options: { label: "Children " },
+              list: AllChildren,
+              show: ChildDetails,
+              create: CreateChild,
+              edit: EditChild,
               icon: <VillaOutlined />,
+            },
+            {
+              name: "leaders",
+              list: AllLeaders,
+              show: LeaderDetails,
+              create: CreateLeader,
+              edit: EditLeader,
+              icon: <PeopleAltOutlined />,
             },
             {
               name: "agents",
               list: Agents,
               show: AgentProfile,
               icon: <PeopleAltOutlined />,
-            },
-            {
-              name: "reviews",
-              list: Home,
-              icon: <StarOutlineRounded />,
-            },
-            {
-              name: "messages",
-              list: Home,
-              icon: <ChatBubbleOutline />,
             },
             {
               name: "my-profile",

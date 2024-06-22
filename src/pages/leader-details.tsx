@@ -18,7 +18,7 @@ function checkImage(url: any) {
   return img.width !== 0 && img.height !== 0;
 }
 
-const PropertyDetails = () => {
+const LeaderDetails = () => {
   const navigate = useNavigate();
   const { data: user } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
@@ -29,7 +29,7 @@ const PropertyDetails = () => {
 
   const { data, isLoading, isError } = queryResult;
 
-  const propertyDetails = data?.data ?? {};
+  const leaderDetails = data?.data ?? {};
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -39,19 +39,19 @@ const PropertyDetails = () => {
     return <div>Something went wrong!</div>;
   }
 
-  const isCurrentUser = user.email === propertyDetails.creator.email;
+  const isCurrentUser = user.email === leaderDetails.creator.email;
 
-  const handleDeleteProperty = () => {
-    const response = confirm("Are you sure you want to delete this property?");
+  const handleDeleteLeader = () => {
+    const response = confirm("Are you sure you want to delete this leader?");
     if (response) {
       mutate(
         {
-          resource: "properties",
+          resource: "leaders",
           id: id as string,
         },
         {
           onSuccess: () => {
-            navigate("/properties");
+            navigate("/leaders");
           },
         },
       );
@@ -77,11 +77,11 @@ const PropertyDetails = () => {
       >
         <Box flex={1} maxWidth={764}>
           <img
-            src={propertyDetails.photo}
-            alt="property_details-img"
+            src={leaderDetails.photo}
+            alt="leader_details-img"
             height={546}
             style={{ objectFit: "cover", borderRadius: "10px" }}
-            className="property_details-img"
+            className="leader_details-img"
           />
 
           <Box mt="15px">
@@ -97,7 +97,7 @@ const PropertyDetails = () => {
                 color="#11142D"
                 textTransform="capitalize"
               >
-                {propertyDetails.propertyType}
+                {leaderDetails.leaderShipType}
               </Typography>
               <Box>
                 {[1, 2, 3, 4, 5].map((item) => (
@@ -120,12 +120,12 @@ const PropertyDetails = () => {
                   mt="10px"
                   color="#11142D"
                 >
-                  {propertyDetails.title}
+                  {leaderDetails.name}
                 </Typography>
                 <Stack mt={0.5} direction="row" alignItems="center" gap={0.5}>
                   <Place sx={{ color: "#808191" }} />
                   <Typography fontSize={14} color="#808191">
-                    {propertyDetails.location}
+                    {leaderDetails.position}
                   </Typography>
                 </Stack>
               </Box>
@@ -137,11 +137,11 @@ const PropertyDetails = () => {
                   mt="10px"
                   color="#11142D"
                 >
-                  Price
+                  Donations
                 </Typography>
                 <Stack direction="row" alignItems="flex-end" gap={1}>
                   <Typography fontSize={25} fontWeight={700} color="#475BE8">
-                    ${propertyDetails.price}
+                    {leaderDetails.donations}
                   </Typography>
                   <Typography fontSize={14} color="#808191" mb={0.5}>
                     for one day
@@ -155,7 +155,7 @@ const PropertyDetails = () => {
                 Description
               </Typography>
               <Typography fontSize={14} color="#808191">
-                {propertyDetails.description}
+                {leaderDetails.description}
               </Typography>
             </Stack>
           </Box>
@@ -186,8 +186,8 @@ const PropertyDetails = () => {
             >
               <img
                 src={
-                  checkImage(propertyDetails.creator.avatar)
-                    ? propertyDetails.creator.avatar
+                  checkImage(leaderDetails.creator.avatar)
+                    ? leaderDetails.creator.avatar
                     : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
                 }
                 alt="avatar"
@@ -201,7 +201,7 @@ const PropertyDetails = () => {
 
               <Box mt="15px">
                 <Typography fontSize={18} fontWeight={600} color="#11142D">
-                  {propertyDetails.creator.name}
+                  {leaderDetails.creator.name}
                 </Typography>
                 <Typography
                   mt="5px"
@@ -209,7 +209,7 @@ const PropertyDetails = () => {
                   fontWeight={400}
                   color="#808191"
                 >
-                  Agent
+                  Leader
                 </Typography>
               </Box>
 
@@ -221,7 +221,7 @@ const PropertyDetails = () => {
               </Stack>
 
               <Typography mt={1} fontSize={16} fontWeight={600} color="#11142D">
-                {propertyDetails.creator.allProperties.length} Properties
+                {leaderDetails.creator.allLeaders.length} Leaders
               </Typography>
             </Stack>
 
@@ -240,7 +240,7 @@ const PropertyDetails = () => {
                 icon={!isCurrentUser ? <ChatBubble /> : <Edit />}
                 handleClick={() => {
                   if (isCurrentUser) {
-                    navigate(`/properties/edit/${propertyDetails._id}`);
+                    navigate(`/leaders/edit/${leaderDetails._id}`);
                   }
                 }}
               />
@@ -251,7 +251,7 @@ const PropertyDetails = () => {
                 fullWidth
                 icon={!isCurrentUser ? <Phone /> : <Delete />}
                 handleClick={() => {
-                  if (isCurrentUser) handleDeleteProperty();
+                  if (isCurrentUser) handleDeleteLeader();
                 }}
               />
             </Stack>
@@ -268,7 +268,7 @@ const PropertyDetails = () => {
 
           <Box>
             <CustomButton
-              title="Book Now"
+              title="Donate Now"
               backgroundColor="#475BE8"
               color="#FCFCFC"
               fullWidth
@@ -280,4 +280,4 @@ const PropertyDetails = () => {
   );
 };
 
-export default PropertyDetails;
+export default LeaderDetails;

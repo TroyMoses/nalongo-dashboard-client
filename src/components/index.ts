@@ -2,6 +2,9 @@
 import Profile from "./common/Profile";
 import ChildCard from "./common/ChildCard";
 import LeaderCard from "./common/LeaderCard";
+import ChapterDenmarkCard from "./common/ChapterDenmarkCard";
+import ChapterGermayCard from "./common/ChapterGermanyCard";
+import ChapterSwitzerlandCard from "./common/ChapterSwitzerland";
 import CustomButton from "./common/CustomButton";
 
 // charts
@@ -19,6 +22,9 @@ export {
   Profile,
   ChildCard,
   LeaderCard,
+  ChapterDenmarkCard,
+  ChapterGermayCard,
+  ChapterSwitzerlandCard,
   CustomButton,
   PieChart,
   ChildReferrals,

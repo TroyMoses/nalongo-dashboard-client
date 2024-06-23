@@ -3,7 +3,7 @@ import { useLogin } from "@refinedev/core";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-import { nalongo } from "../assets";
+import logo1 from "../assets/logo1.png";
 
 import type { CredentialResponse } from "../interfaces/google";
 
@@ -64,7 +64,7 @@ export const Login: React.FC = () => {
           }}
         >
           <div>
-            <img src={nalongo} alt="Nalongo Logo" />
+            <img src={logo1} alt="Nalongo Logo" />
           </div>
           <Box mt={4}>
             <GoogleButton />

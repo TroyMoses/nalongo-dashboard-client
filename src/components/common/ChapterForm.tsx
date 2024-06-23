@@ -9,22 +9,22 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 
-import type { LeaderFormProps } from "interfaces/common";
+import type { ChapterFormProps } from "interfaces/common";
 import CustomButton from "./CustomButton";
 
-const LeaderForm = ({
+const ChapterForm = ({
   type,
   register,
   handleSubmit,
   handleImageChange,
   formLoading,
   onFinishHandler,
-  leaderImage,
-}: LeaderFormProps) => {
+  chapterImage,
+}: ChapterFormProps) => {
   return (
     <Box>
       <Typography fontSize={25} fontWeight={700} color="#11142d">
-        {type} a Leader
+        {type} a Chapter
       </Typography>
 
       <Box mt={2.5} borderRadius="15px" padding="20px" bgcolor="#fcfcfc">
@@ -47,7 +47,7 @@ const LeaderForm = ({
                 color: "#11142d",
               }}
             >
-              Enter Leader name
+              Enter Chapter name
             </FormHelperText>
             <TextField
               fullWidth
@@ -87,77 +87,6 @@ const LeaderForm = ({
             />
           </FormControl>
 
-          <Stack direction="row" gap={4}>
-            <FormControl sx={{ flex: 1 }}>
-              <FormHelperText
-                sx={{
-                  fontWeight: 500,
-                  margin: "10px 0",
-                  fontSize: 16,
-                  color: "#11142d",
-                }}
-              >
-                Select Leadership Type
-              </FormHelperText>
-              <Select
-                variant="outlined"
-                color="info"
-                displayEmpty
-                required
-                inputProps={{ "aria-label": "Without label" }}
-                defaultValue="board-member"
-                {...register("leaderShipType", {
-                  required: true,
-                })}
-              >
-                <MenuItem value="board-member">Board-Member</MenuItem>
-                <MenuItem value="leadership-team">Leadership-Team</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl>
-              <FormHelperText
-                sx={{
-                  fontWeight: 500,
-                  margin: "10px 0",
-                  fontSize: 16,
-                  color: "#11142d",
-                }}
-              >
-                Enter Leader Donations
-              </FormHelperText>
-              <TextField
-                fullWidth
-                required
-                id="outlined-basic"
-                color="info"
-                type="number"
-                variant="outlined"
-                {...register("donations", { required: true })}
-              />
-            </FormControl>
-          </Stack>
-
-          <FormControl>
-            <FormHelperText
-              sx={{
-                fontWeight: 500,
-                margin: "10px 0",
-                fontSize: 16,
-                color: "#11142d",
-              }}
-            >
-              Enter Position
-            </FormHelperText>
-            <TextField
-              fullWidth
-              required
-              id="outlined-basic"
-              color="info"
-              variant="outlined"
-              {...register("position", { required: true })}
-            />
-          </FormControl>
-
           <Stack direction="column" gap={1} justifyContent="center" mb={2}>
             <Stack direction="row" gap={2}>
               <Typography
@@ -166,7 +95,7 @@ const LeaderForm = ({
                 fontWeight={500}
                 my="10px"
               >
-                Leader Photo
+                Chapter Photo
               </Typography>
 
               <Button
@@ -194,7 +123,7 @@ const LeaderForm = ({
               color="#808191"
               sx={{ wordBreak: "break-all" }}
             >
-              {leaderImage?.name}
+              {chapterImage?.name}
             </Typography>
           </Stack>
 
@@ -210,4 +139,4 @@ const LeaderForm = ({
   );
 };
 
-export default LeaderForm;
+export default ChapterForm;

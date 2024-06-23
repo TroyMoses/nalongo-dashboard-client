@@ -37,6 +37,18 @@ import {
   CreateLeader,
   EditLeader,
   LeaderDetails,
+  AllChapterDenmark,
+  CreateChapterDenmark,
+  EditChapterDenmark,
+  ChapterDenmarkDetails,
+  AllChapterGermany,
+  CreateChapterGermany,
+  EditChapterGermany,
+  ChapterGermanyDetails,
+  AllChapterSwitzerland,
+  CreateChapterSwitzerland,
+  EditChapterSwitzerland,
+  ChapterSwitzerlandDetails,
   Home,
   Login,
   MyProfile,
@@ -126,7 +138,6 @@ function App() {
 
   return (
     <ColorModeContextProvider>
-      <GitHubBanner />
       <CssBaseline />
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
@@ -151,6 +162,33 @@ function App() {
               show: LeaderDetails,
               create: CreateLeader,
               edit: EditLeader,
+              icon: <PeopleAltOutlined />,
+            },
+            {
+              name: "chapter-denmark",
+              options: { label: "Chapter Denmark " },
+              list: AllChapterDenmark,
+              show: ChapterDenmarkDetails,
+              create: CreateChapterDenmark,
+              edit: EditChapterDenmark,
+              icon: <PeopleAltOutlined />,
+            },
+            {
+              name: "chapter-switzerland",
+              options: { label: "Chapter Switzerland " },
+              list: AllChapterSwitzerland,
+              show: ChapterSwitzerlandDetails,
+              create: CreateChapterSwitzerland,
+              edit: EditChapterSwitzerland,
+              icon: <PeopleAltOutlined />,
+            },
+            {
+              name: "chapter-germany",
+              options: { label: "Chapter Germany " },
+              list: AllChapterGermany,
+              show: ChapterGermanyDetails,
+              create: CreateChapterGermany,
+              edit: EditChapterGermany,
               icon: <PeopleAltOutlined />,
             },
             {

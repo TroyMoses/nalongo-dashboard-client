@@ -119,8 +119,8 @@ const AllLeaders = () => {
               >
                 <MenuItem value="">All</MenuItem>
                 {[
-                  "Board Member",
-                  "Leadership Team",
+                  "Board-Member",
+                  "Leadership-Team",
                 ].map((type) => (
                   <MenuItem key={type} value={type.toLowerCase()}>
                     {type}

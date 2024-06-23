@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import type { LeaderFormProps } from "interfaces/common";
 import CustomButton from "./CustomButton";
 
-const Form = ({
+const LeaderForm = ({
   type,
   register,
   handleSubmit,
@@ -97,7 +97,7 @@ const Form = ({
                   color: "#11142d",
                 }}
               >
-                Select Level Of Need
+                Select Leadership Type
               </FormHelperText>
               <Select
                 variant="outlined"
@@ -105,15 +105,13 @@ const Form = ({
                 displayEmpty
                 required
                 inputProps={{ "aria-label": "Without label" }}
-                defaultValue="Average"
-                {...register("levelOfNeed", {
+                defaultValue="board-member"
+                {...register("leaderShipType", {
                   required: true,
                 })}
               >
-                <MenuItem value="average">Average</MenuItem>
-                <MenuItem value="high">High</MenuItem>
-                <MenuItem value="low">Low</MenuItem>
-                <MenuItem value="urgent">Urgent</MenuItem>
+                <MenuItem value="board-member">Board-Member</MenuItem>
+                <MenuItem value="leadership-team">Leadership-Team</MenuItem>
               </Select>
             </FormControl>
             <FormControl>
@@ -148,7 +146,7 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Grade
+              Enter Position
             </FormHelperText>
             <TextField
               fullWidth
@@ -156,7 +154,7 @@ const Form = ({
               id="outlined-basic"
               color="info"
               variant="outlined"
-              {...register("grade", { required: true })}
+              {...register("position", { required: true })}
             />
           </FormControl>
 
@@ -212,4 +210,4 @@ const Form = ({
   );
 };
 
-export default Form;
+export default LeaderForm;

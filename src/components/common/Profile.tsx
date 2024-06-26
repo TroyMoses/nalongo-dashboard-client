@@ -77,9 +77,9 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
               </Stack>
 
               <Stack direction="column" gap="30px">
-                <Stack gap="15px">
+                <Stack flex={1} gap="15px">
                   <Typography fontSize={14} fontWeight={500} color="#808191">
-                    Address
+                    Email
                   </Typography>
                   <Box
                     display="flex"
@@ -87,9 +87,9 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
                     alignItems="center"
                     gap="10px"
                   >
-                    <Place sx={{ color: "#11142D" }} />
+                    <Email sx={{ color: "#11142D" }} />
                     <Typography fontSize={14} color="#11142D">
-                      4517 Washington Ave. Manchaster, Kentucky 39495
+                      {email}
                     </Typography>
                   </Box>
                 </Stack>
@@ -156,6 +156,9 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
               id={child._id}
               levelOfNeed={child.levelOfNeed}
               name={child.name}
+              age={child.age}
+              gender={child.gender}
+              childId={child.childId}
               grade={child.grade}
               donations={child.donations}
               photo={child.photo}

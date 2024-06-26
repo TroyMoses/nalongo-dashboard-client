@@ -12,6 +12,21 @@ import Star from "@mui/icons-material/Star";
 
 import { CustomButton } from "components";
 
+function getNumberOfStarsBasedOnNeed(needLevel: any) {
+  switch (needLevel) {
+    case "Low":
+      return 2;
+    case "Average":
+      return 3;
+    case "High":
+      return 4;
+    case "Urgent":
+      return 5;
+    default:
+      return 0;
+  }
+}
+
 function checkImage(url: any) {
   const img = new Image();
   img.src = url;
@@ -53,7 +68,7 @@ const ChildDetails = () => {
           onSuccess: () => {
             navigate("/children");
           },
-        },
+        }
       );
     }
   };
@@ -66,7 +81,7 @@ const ChildDetails = () => {
       width="fit-content"
     >
       <Typography fontSize={25} fontWeight={700} color="#11142D">
-        Details
+        Child Details
       </Typography>
 
       <Box
@@ -92,18 +107,21 @@ const ChildDetails = () => {
               alignItems="center"
             >
               <Typography
-                fontSize={18}
-                fontWeight={500}
+                fontSize={22}
+                fontWeight={600}
+                mt="10px"
                 color="#11142D"
-                textTransform="capitalize"
               >
-                {childDetails.levelOfNeed}
+                {childDetails.name}
               </Typography>
-              <Box>
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <Star key={`star-${item}`} sx={{ color: "#F2C94C" }} />
-                ))}
-              </Box>
+              <Typography
+                  fontSize={18}
+                  fontWeight={600}
+                  color="#475BE8"
+                  textTransform="capitalize"
+                >
+                  Age: {childDetails.age}
+                </Typography>
             </Stack>
 
             <Stack
@@ -115,46 +133,38 @@ const ChildDetails = () => {
             >
               <Box>
                 <Typography
-                  fontSize={22}
-                  fontWeight={600}
+                  fontSize={16}
+                  fontWeight={500}
                   mt="10px"
                   color="#11142D"
                 >
-                  {childDetails.name}
+                  Level Of Need
                 </Typography>
-                <Stack mt={0.5} direction="row" alignItems="center" gap={0.5}>
-                  <Place sx={{ color: "#808191" }} />
-                  <Typography fontSize={14} color="#808191">
-                    {childDetails.grade}
+                <Stack direction="row" alignItems="flex-end" gap={1}>
+                  <Typography fontSize={18} fontWeight={600} color="#475BE8">
+                    {childDetails.levelOfNeed.toUpperCase()}
                   </Typography>
                 </Stack>
               </Box>
 
               <Box>
-                <Typography
-                  fontSize={16}
-                  fontWeight={600}
-                  mt="10px"
-                  color="#11142D"
-                >
-                  Donations
-                </Typography>
-                <Stack direction="row" alignItems="flex-end" gap={1}>
-                  <Typography fontSize={25} fontWeight={700} color="#475BE8">
-                    {childDetails.donations}
+                <Stack mt={0.5} direction="row" alignItems="center" gap={0.5}>
+                <Typography fontSize={16} fontWeight={500} color="#808191">
+                    Class:
                   </Typography>
-                  <Typography fontSize={14} color="#808191" mb={0.5}>
-                    for one day
+                  <Typography fontSize={14} fontWeight={500} color="#808191">
+                    {childDetails.grade}
                   </Typography>
                 </Stack>
               </Box>
+
             </Stack>
 
-            <Stack mt="25px" direction="column" gap="10px">
-              <Typography fontSize={18} color="#11142D">
+            <Stack mt="14px" direction="column" gap="10px">
+              <Typography fontSize={18} fontWeight={400} color="#11142D">
                 Description
               </Typography>
-              <Typography fontSize={14} color="#808191">
+              <Typography fontSize={15} fontWeight={400} color="#808191">
                 {childDetails.description}
               </Typography>
             </Stack>
@@ -213,13 +223,6 @@ const ChildDetails = () => {
                 </Typography>
               </Box>
 
-              <Stack mt="15px" direction="row" alignItems="center" gap={1}>
-                <Place sx={{ color: "#808191" }} />
-                <Typography fontSize={14} fontWeight={400} color="#808191">
-                  North Carolina, USA
-                </Typography>
-              </Stack>
-
               <Typography mt={1} fontSize={16} fontWeight={600} color="#11142D">
                 {childDetails.creator.allChildren.length} Children
               </Typography>
@@ -256,24 +259,6 @@ const ChildDetails = () => {
               />
             </Stack>
           </Stack>
-
-          <Stack>
-            <img
-              src="https://serpmedia.org/scigen/images/googlemaps-nyc-standard.png?crc=3787557525"
-              width="100%"
-              height={306}
-              style={{ borderRadius: 10, objectFit: "cover" }}
-            />
-          </Stack>
-
-          <Box>
-            <CustomButton
-              title="Donate Now"
-              backgroundColor="#475BE8"
-              color="#FCFCFC"
-              fullWidth
-            />
-          </Box>
         </Box>
       </Box>
     </Box>

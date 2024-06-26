@@ -20,7 +20,7 @@ export interface ProfileProps {
 export interface ChildProps {
   _id: string;
   name: string;
-  age: string;
+  age: number;
   childId: string;
   gender: string;
   levelOfNeed: string;

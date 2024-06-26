@@ -47,7 +47,7 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Child name
+              Enter Child Name
             </FormHelperText>
             <TextareaAutosize
               minRows={1}
@@ -75,7 +75,7 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Child name
+              Enter Child Age
             </FormHelperText>
             <TextareaAutosize
               minRows={1}
@@ -90,7 +90,7 @@ const Form = ({
                 padding: 10,
                 color: "#919191",
               }}
-              {...register("name", { required: true })}
+              {...register("age", { required: true })}
             />
           </FormControl>
 
@@ -254,7 +254,7 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Grade
+              Enter Class
             </FormHelperText>
             <TextField
               fullWidth

@@ -52,30 +52,18 @@ const ChildCard = ({
         }}
       >
         <Stack direction="column" gap={1}>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {name}
+          <Typography fontSize={18} fontWeight={500} color="#808191">
+            {name.toUpperCase()}
           </Typography>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {gender}
-          </Typography>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
+          <Typography fontSize={16} fontWeight={500} color="#808191">
             {childId}
           </Typography>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {age}
+          <Typography fontSize={16} fontWeight={500} color="#808191">
+            {gender.toUpperCase()}
           </Typography>
-          <Stack direction="row" gap={0.5} alignItems="flex-start">
-            <Place
-              sx={{
-                fontSize: 18,
-                color: "#11142d",
-                marginTop: 0.5,
-              }}
-            />
-            <Typography fontSize={14} color="#808191">
-              {grade}
-            </Typography>
-          </Stack>
+          <Typography fontSize={16} color="#808191">
+            {grade}
+          </Typography>
         </Stack>
         <Box
           px={1.5}
@@ -85,7 +73,7 @@ const ChildCard = ({
           height="fit-content"
         >
           <Typography fontSize={12} fontWeight={600} color="#475be8">
-            {donations}
+            {age}
           </Typography>
         </Box>
       </CardContent>

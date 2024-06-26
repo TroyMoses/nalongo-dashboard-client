@@ -66,7 +66,7 @@ const ChapterSwitzerlandDetails = () => {
       width="fit-content"
     >
       <Typography fontSize={25} fontWeight={700} color="#11142D">
-        Details
+        Chapter Switzerland Details
       </Typography>
 
       <Box
@@ -99,7 +99,7 @@ const ChapterSwitzerlandDetails = () => {
                   mt="10px"
                   color="#11142D"
                 >
-                  {chapterSwitzerlandDetails.name}
+                  {chapterSwitzerlandDetails.name.toUpperCase()}
                 </Typography>
               </Box>
 
@@ -168,13 +168,6 @@ const ChapterSwitzerlandDetails = () => {
                 </Typography>
               </Box>
 
-              <Stack mt="15px" direction="row" alignItems="center" gap={1}>
-                <Place sx={{ color: "#808191" }} />
-                <Typography fontSize={14} fontWeight={400} color="#808191">
-                  North Carolina, USA
-                </Typography>
-              </Stack>
-
               <Typography mt={1} fontSize={16} fontWeight={600} color="#11142D">
                 {chapterSwitzerlandDetails.creator.allChapterSwitzerland.length} Chapter Switzerland
               </Typography>
@@ -212,23 +205,6 @@ const ChapterSwitzerlandDetails = () => {
             </Stack>
           </Stack>
 
-          <Stack>
-            <img
-              src="https://serpmedia.org/scigen/images/googlemaps-nyc-standard.png?crc=3787557525"
-              width="100%"
-              height={306}
-              style={{ borderRadius: 10, objectFit: "cover" }}
-            />
-          </Stack>
-
-          <Box>
-            <CustomButton
-              title="Donate Now"
-              backgroundColor="#475BE8"
-              color="#FCFCFC"
-              fullWidth
-            />
-          </Box>
         </Box>
       </Box>
     </Box>

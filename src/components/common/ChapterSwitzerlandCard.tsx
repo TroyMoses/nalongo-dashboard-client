@@ -46,8 +46,8 @@ const ChapterSwitzerlandCard = ({
         }}
       >
         <Stack direction="column" gap={1}>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {name}
+          <Typography fontSize={18} fontWeight={500} color="#808191">
+            {name.toUpperCase()}
           </Typography>
         </Stack>
       </CardContent>

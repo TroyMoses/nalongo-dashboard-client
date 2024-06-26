@@ -1,4 +1,5 @@
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
+import PeopleAltOutlined from "@mui/icons-material/PeopleAltOutlined";
 import LocationCity from "@mui/icons-material/LocationCity";
 import Phone from "@mui/icons-material/Phone";
 import Place from "@mui/icons-material/Place";
@@ -79,8 +80,18 @@ const AgentCard = ({
             {name}
           </Typography>
           <Typography fontSize={14} color="#808191">
-            Real-Estate Agent
+            Dashboard Agent
           </Typography>
+        </Stack>
+        <Stack
+          direction="row"
+          alignItems="center"
+          gap={2}
+        >
+          <InfoBar
+            icon={<EmailOutlined sx={{ color: "#808191" }} />}
+            name={email}
+          />
         </Stack>
         <Stack
           direction="row"
@@ -90,16 +101,7 @@ const AgentCard = ({
           gap={2}
         >
           <InfoBar
-            icon={<EmailOutlined sx={{ color: "#808191" }} />}
-            name={email}
-          />
-          <InfoBar icon={<Place sx={{ color: "#808191" }} />} name="London" />
-          <InfoBar
-            icon={<Phone sx={{ color: "#808191" }} />}
-            name="+502-3231-4141"
-          />
-          <InfoBar
-            icon={<LocationCity sx={{ color: "#808191" }} />}
+            icon={<PeopleAltOutlined sx={{ color: "#808191" }} />}
             name={`${noOfChildren} Children`}
           />
         </Stack>

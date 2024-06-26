@@ -3,12 +3,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
-import {
-  PieChart,
-  ChildReferrals,
-  TotalRevenue,
-  ChildCard,
-} from "components";
+import { PieChart, ChildReferrals, TotalRevenue, ChildCard } from "components";
 
 const Home = () => {
   const { data, isLoading, isError } = useList({
@@ -88,6 +83,9 @@ const Home = () => {
               key={child._id}
               id={child._id}
               name={child.name}
+              age={child.age}
+              gender={child.gender}
+              childId={child.childId}
               levelOfNeed={child.levelOfNeed}
               grade={child.grade}
               donations={child.donations}

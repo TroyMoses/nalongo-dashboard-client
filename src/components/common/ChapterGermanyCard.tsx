@@ -17,7 +17,7 @@ const ChapterGermayCard = ({
   return (
     <Card
       component={Link}
-      to={`/chapter-germay/show/${id}`}
+      to={`/chapter-germany/show/${id}`}
       sx={{
         maxWidth: "330px",
         padding: "10px",
@@ -46,8 +46,8 @@ const ChapterGermayCard = ({
         }}
       >
         <Stack direction="column" gap={1}>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {name}
+          <Typography fontSize={18} fontWeight={500} color="#808191">
+            {name.toUpperCase()}
           </Typography>
         </Stack>
       </CardContent>

@@ -12,6 +12,9 @@ import type { ChildCardProps } from "interfaces/child";
 const ChildCard = ({
   id,
   name,
+  childId,
+  age,
+  gender,
   grade,
   levelOfNeed,
   donations,
@@ -51,6 +54,15 @@ const ChildCard = ({
         <Stack direction="column" gap={1}>
           <Typography fontSize={16} fontWeight={500} color="#11142d">
             {name}
+          </Typography>
+          <Typography fontSize={16} fontWeight={500} color="#11142d">
+            {gender}
+          </Typography>
+          <Typography fontSize={16} fontWeight={500} color="#11142d">
+            {childId}
+          </Typography>
+          <Typography fontSize={16} fontWeight={500} color="#11142d">
+            {age}
           </Typography>
           <Stack direction="row" gap={0.5} alignItems="flex-start">
             <Place

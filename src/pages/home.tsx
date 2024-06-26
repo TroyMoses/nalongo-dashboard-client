@@ -120,7 +120,7 @@ const Home = () => {
 
   const renderProgressBars = () => {
     return percentages.map((percentage, index) => {
-      const barData = childReferralsInfo[index]; 
+      const barData = childReferralsInfo[index];
       return (
         <Stack key={barData.title} my="20px" direction="column" gap={4}>
           <ProgressBar
@@ -142,14 +142,8 @@ const Home = () => {
       <Box mt="20px" display="flex" flexWrap="wrap" gap={4}>
         <PieChart
           title="Total Children "
-          value={noOfChildren}
+          value={noOfChildren!}
           series={[75, 25]}
-          colors={["#275be8", "#c4e8ef"]}
-        />
-        <PieChart
-          title="Total Leaders"
-          value={noOfLeaders!}
-          series={[60, 40]}
           colors={["#275be8", "#c4e8ef"]}
         />
         <PieChart
@@ -172,12 +166,16 @@ const Home = () => {
         />
       </Box>
 
-      <Stack
-        mt="25px"
-        width="100%"
-        direction={{ xs: "column", lg: "row" }}
-        gap={4}
-      >
+      <Box mt="20px">
+        <PieChart
+          title="Total Leaders"
+          value={noOfLeaders!}
+          series={[60, 40]}
+          colors={["#275be8", "#c4e8ef"]}
+        />
+      </Box>
+
+      <Stack mt="25px" width="100%">
         {/* <ChildReferrals /> */}
         <Box
           p={4}
@@ -192,10 +190,7 @@ const Home = () => {
             Children Referrals
           </Typography>
 
-          <Box>
-            {renderProgressBars()}
-          </Box>
-
+          <Box>{renderProgressBars()}</Box>
         </Box>
       </Stack>
 

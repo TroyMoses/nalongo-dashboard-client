@@ -42,40 +42,27 @@ const LeaderCard = ({
       <CardContent
         sx={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
+          flexDirection: "column",
           gap: "10px",
           paddingX: "5px",
         }}
       >
         <Stack direction="column" gap={1}>
-          <Typography fontSize={16} fontWeight={500} color="#11142d">
-            {name}
+          <Typography fontSize={18} fontWeight={500} color="#808191">
+            {name.toUpperCase()}
           </Typography>
           <Stack direction="row" gap={0.5} alignItems="flex-start">
-            <Place
-              sx={{
-                fontSize: 18,
-                color: "#11142d",
-                marginTop: 0.5,
-              }}
-            />
-            <Typography fontSize={14} color="#808191">
+          <Typography fontSize={16} color="#808191">
+              Position:
+            </Typography>
+            <Typography fontSize={16} color="#808191">
               {position}
             </Typography>
           </Stack>
         </Stack>
-        <Box
-          px={1.5}
-          py={0.5}
-          borderRadius={1}
-          bgcolor="#dadefa"
-          height="fit-content"
-        >
-          <Typography fontSize={12} fontWeight={600} color="#475be8">
-            {leaderShipType}
-          </Typography>
-        </Box>
+        <Typography fontSize={16} color="#808191">
+          Type: {leaderShipType}
+        </Typography>
       </CardContent>
     </Card>
   );

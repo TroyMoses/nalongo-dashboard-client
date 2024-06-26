@@ -1,4 +1,6 @@
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
+import SupervisorAccountOutlined from "@mui/icons-material/SupervisorAccountOutlined";
+import PeopleAltOutlined from "@mui/icons-material/PeopleAltOutlined";
 import LocationCity from "@mui/icons-material/LocationCity";
 import Phone from "@mui/icons-material/Phone";
 import Place from "@mui/icons-material/Place";
@@ -31,6 +33,10 @@ const AgentCard = ({
   email,
   avatar,
   noOfChildren,
+  noOfLeaders,
+  noOfChapterDenmark,
+  noOfChapterGermany,
+  noOfChapterSwitzerland,
 }: AgentCardProp) => {
   const { data: currentUser } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
@@ -79,8 +85,18 @@ const AgentCard = ({
             {name}
           </Typography>
           <Typography fontSize={14} color="#808191">
-            Real-Estate Agent
+            Dashboard Agent
           </Typography>
+        </Stack>
+        <Stack
+          direction="row"
+          alignItems="center"
+          gap={2}
+        >
+          <InfoBar
+            icon={<EmailOutlined sx={{ color: "#808191" }} />}
+            name={email}
+          />
         </Stack>
         <Stack
           direction="row"
@@ -90,17 +106,24 @@ const AgentCard = ({
           gap={2}
         >
           <InfoBar
-            icon={<EmailOutlined sx={{ color: "#808191" }} />}
-            name={email}
-          />
-          <InfoBar icon={<Place sx={{ color: "#808191" }} />} name="London" />
-          <InfoBar
-            icon={<Phone sx={{ color: "#808191" }} />}
-            name="+502-3231-4141"
+            icon={<PeopleAltOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChildren} Children`}
           />
           <InfoBar
-            icon={<LocationCity sx={{ color: "#808191" }} />}
-            name={`${noOfChildren} Children`}
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfLeaders} Leaders`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterDenmark} in Chapter Denmark`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterGermany} in Chapter Germany`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterSwitzerland} in Chapter Switzerland`}
           />
         </Stack>
       </Stack>

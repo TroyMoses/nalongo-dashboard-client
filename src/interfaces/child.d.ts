@@ -16,6 +16,9 @@ export interface FormValues {
 export interface ChildCardProps {
   id?: BaseKey | undefined;
   name: string;
+  age: number;
+  childId: string;
+  gender: string;
   grade: string;
   levelOfNeed: string;
   donations: string;

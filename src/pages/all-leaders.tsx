@@ -73,12 +73,6 @@ const AllLeaders = () => {
               flexWrap="wrap"
               mb={{ xs: "20px", sm: 0 }}
             >
-              <CustomButton
-                title={`Sort donations ${currentDonation === "asc" ? "↑" : "↓"}`}
-                handleClick={() => toggleSort("donations")}
-                backgroundColor="#475be8"
-                color="#fcfcfc"
-              />
               <TextField
                 variant="outlined"
                 color="info"
@@ -117,7 +111,7 @@ const AllLeaders = () => {
                   );
                 }}
               >
-                <MenuItem value="">All</MenuItem>
+                <MenuItem value="">FIlter By Leadership Type</MenuItem>
                 {[
                   "Board-Member",
                   "Leadership-Team",

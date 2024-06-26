@@ -66,7 +66,7 @@ const LeaderDetails = () => {
       width="fit-content"
     >
       <Typography fontSize={25} fontWeight={700} color="#11142D">
-        Details
+        Leader Details
       </Typography>
 
       <Box
@@ -120,41 +120,25 @@ const LeaderDetails = () => {
                   mt="10px"
                   color="#11142D"
                 >
-                  {leaderDetails.name}
+                  {leaderDetails.name.toUpperCase()}
                 </Typography>
                 <Stack mt={0.5} direction="row" alignItems="center" gap={0.5}>
-                  <Place sx={{ color: "#808191" }} />
-                  <Typography fontSize={14} color="#808191">
+                <Typography fontSize={15} fontWeight={500} color="#808191">
+                    Position:
+                  </Typography>
+                  <Typography fontSize={15} fontWeight={500} color="#808191">
                     {leaderDetails.position}
                   </Typography>
                 </Stack>
               </Box>
 
-              <Box>
-                <Typography
-                  fontSize={16}
-                  fontWeight={600}
-                  mt="10px"
-                  color="#11142D"
-                >
-                  Donations
-                </Typography>
-                <Stack direction="row" alignItems="flex-end" gap={1}>
-                  <Typography fontSize={25} fontWeight={700} color="#475BE8">
-                    {leaderDetails.donations}
-                  </Typography>
-                  <Typography fontSize={14} color="#808191" mb={0.5}>
-                    for one day
-                  </Typography>
-                </Stack>
-              </Box>
             </Stack>
 
             <Stack mt="25px" direction="column" gap="10px">
-              <Typography fontSize={18} color="#11142D">
+              <Typography fontSize={18} fontWeight={500} color="#11142D">
                 Description
               </Typography>
-              <Typography fontSize={14} color="#808191">
+              <Typography fontSize={15} fontWeight={500} color="#808191">
                 {leaderDetails.description}
               </Typography>
             </Stack>
@@ -213,13 +197,6 @@ const LeaderDetails = () => {
                 </Typography>
               </Box>
 
-              <Stack mt="15px" direction="row" alignItems="center" gap={1}>
-                <Place sx={{ color: "#808191" }} />
-                <Typography fontSize={14} fontWeight={400} color="#808191">
-                  North Carolina, USA
-                </Typography>
-              </Stack>
-
               <Typography mt={1} fontSize={16} fontWeight={600} color="#11142D">
                 {leaderDetails.creator.allLeaders.length} Leaders
               </Typography>
@@ -256,24 +233,6 @@ const LeaderDetails = () => {
               />
             </Stack>
           </Stack>
-
-          <Stack>
-            <img
-              src="https://serpmedia.org/scigen/images/googlemaps-nyc-standard.png?crc=3787557525"
-              width="100%"
-              height={306}
-              style={{ borderRadius: 10, objectFit: "cover" }}
-            />
-          </Stack>
-
-          <Box>
-            <CustomButton
-              title="Donate Now"
-              backgroundColor="#475BE8"
-              color="#FCFCFC"
-              fullWidth
-            />
-          </Box>
         </Box>
       </Box>
     </Box>

@@ -47,17 +47,123 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Child name
+              Enter Child Name
             </FormHelperText>
-            <TextField
-              fullWidth
+            <TextareaAutosize
+              minRows={1}
               required
-              id="outlined-basic"
               color="info"
-              variant="outlined"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
               {...register("name", { required: true })}
             />
           </FormControl>
+
+          <FormControl>
+            <FormHelperText
+              sx={{
+                fontWeight: 500,
+                margin: "10px 0",
+                fontSize: 16,
+                color: "#11142d",
+              }}
+            >
+              Enter Child Age
+            </FormHelperText>
+            <TextareaAutosize
+              minRows={1}
+              required
+              color="info"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
+              {...register("age", { required: true })}
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormHelperText
+              sx={{
+                fontWeight: 500,
+                margin: "10px 0",
+                fontSize: 16,
+                color: "#11142d",
+              }}
+            >
+              Enter Child ID
+            </FormHelperText>
+            <TextareaAutosize
+              minRows={1}
+              required
+              color="info"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
+              {...register("childId", { required: true })}
+            />
+          </FormControl>
+
+          <FormControl sx={{ flex: 1 }}>
+            <FormHelperText
+              sx={{
+                fontWeight: 500,
+                margin: "10px 0",
+                fontSize: 16,
+                color: "#11142d",
+              }}
+            >
+              Select Gender
+            </FormHelperText>
+            <Select
+              variant="outlined"
+              color="info"
+              displayEmpty
+              required
+              sx={{
+                flex: 1,
+                "& .MuiSelect-select": {
+                  color: "#919191",
+                },
+                "& .MuiFormLabel-root": {
+                  color: "#919191",
+                },
+                "& .MuiInputLabel-outlined": {
+                  color: "#919191",
+                },
+              }}
+              {...register("gender", {
+                required: true,
+              })}
+              inputProps={{ "aria-label": "Without label" }}
+              defaultValue="male"
+              {...register("gender", {
+                required: true,
+              })}
+            >
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+            </Select>
+          </FormControl>
+
           <FormControl>
             <FormHelperText
               sx={{
@@ -104,6 +210,18 @@ const Form = ({
                 color="info"
                 displayEmpty
                 required
+                sx={{
+                  flex: 1,
+                  "& .MuiSelect-select": {
+                    color: "#919191",
+                  },
+                  "& .MuiFormLabel-root": {
+                    color: "#919191",
+                  },
+                  "& .MuiInputLabel-outlined": {
+                    color: "#919191",
+                  },
+                }}
                 inputProps={{ "aria-label": "Without label" }}
                 defaultValue="Average"
                 {...register("levelOfNeed", {
@@ -127,15 +245,21 @@ const Form = ({
               >
                 Enter Child Donations
               </FormHelperText>
-              <TextField
-                fullWidth
-                required
-                id="outlined-basic"
-                color="info"
-                type="number"
-                variant="outlined"
-                {...register("donations", { required: true })}
-              />
+              <TextareaAutosize
+              minRows={1}
+              required
+              color="info"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
+              {...register("donations", { required: true })}
+            />
             </FormControl>
           </Stack>
 
@@ -148,14 +272,21 @@ const Form = ({
                 color: "#11142d",
               }}
             >
-              Enter Grade
+              Enter Class
             </FormHelperText>
-            <TextField
-              fullWidth
+            <TextareaAutosize
+              minRows={1}
               required
-              id="outlined-basic"
               color="info"
-              variant="outlined"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
               {...register("grade", { required: true })}
             />
           </FormControl>

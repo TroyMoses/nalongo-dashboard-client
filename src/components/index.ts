@@ -4,7 +4,7 @@ import ChildCard from "./common/ChildCard";
 import LeaderCard from "./common/LeaderCard";
 import ChapterDenmarkCard from "./common/ChapterDenmarkCard";
 import ChapterGermayCard from "./common/ChapterGermanyCard";
-import ChapterSwitzerlandCard from "./common/ChapterSwitzerland";
+import ChapterSwitzerlandCard from "./common/ChapterSwitzerlandCard";
 import CustomButton from "./common/CustomButton";
 
 // charts

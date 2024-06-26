@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 
-import {  ChildCard, CustomButton } from "components";
+import { ChildCard, CustomButton } from "components";
 
 const AllChildren = () => {
   const navigate = useNavigate();
@@ -28,15 +28,15 @@ const AllChildren = () => {
 
   const allChildren = data?.data ?? [];
 
-  const currentDonation = sorter.find((item) => item.field === "donations")?.order;
+  const currentAge = sorter.find((item) => item.field === "age")?.order;
 
   const toggleSort = (field: string) => {
-    setSorter([{ field, order: currentDonation === "asc" ? "desc" : "asc" }]);
+    setSorter([{ field, order: currentAge === "asc" ? "desc" : "asc" }]);
   };
 
   const currentFilterValues = useMemo(() => {
     const logicalFilters = filters.flatMap((item) =>
-      "field" in item ? item : [],
+      "field" in item ? item : []
     );
 
     return {
@@ -44,6 +44,10 @@ const AllChildren = () => {
       levelOfNeed:
         logicalFilters.find((item) => item.field === "levelOfNeed")?.value ||
         "",
+      gender:
+        logicalFilters.find((item) => item.field === "gender")?.value || "",
+      childId:
+        logicalFilters.find((item) => item.field === "childId")?.value || "",
     };
   }, [filters]);
 
@@ -55,9 +59,7 @@ const AllChildren = () => {
       <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
         <Stack direction="column" width="100%">
           <Typography fontSize={25} fontWeight={700} color="#11142d">
-            {!allChildren.length
-              ? "There are no children"
-              : "All Children"}
+            {!allChildren.length ? "There are no children" : "All Children"}
           </Typography>
           <Box
             mb={2}
@@ -69,13 +71,13 @@ const AllChildren = () => {
           >
             <Box
               display="flex"
-              gap={2}
+              gap={5}
               flexWrap="wrap"
               mb={{ xs: "20px", sm: 0 }}
             >
               <CustomButton
-                title={`Sort donations ${currentDonation === "asc" ? "↑" : "↓"}`}
-                handleClick={() => toggleSort("donations")}
+                title={`Sort by Age ${currentAge === "asc" ? "↑" : "↓"}`}
+                handleClick={() => toggleSort("age")}
                 backgroundColor="#475be8"
                 color="#fcfcfc"
               />
@@ -96,6 +98,25 @@ const AllChildren = () => {
                   ]);
                 }}
               />
+
+              <TextField
+                variant="outlined"
+                color="info"
+                placeholder="Search by ID"
+                value={currentFilterValues.childId}
+                onChange={(e) => {
+                  setFilters([
+                    {
+                      field: "childId",
+                      operator: "contains",
+                      value: e.currentTarget.value
+                        ? e.currentTarget.value
+                        : undefined,
+                    },
+                  ]);
+                }}
+              />
+
               <Select
                 variant="outlined"
                 color="info"
@@ -113,17 +134,41 @@ const AllChildren = () => {
                         value: e.target.value,
                       },
                     ],
-                    "replace",
+                    "replace"
                   );
                 }}
               >
-                <MenuItem value="">All</MenuItem>
-                {[
-                  "High",
-                  "Low",
-                  "Average",
-                  "Urgent",
-                ].map((type) => (
+                <MenuItem value="">Filter By Level Of Need</MenuItem>
+                {["High", "Low", "Average", "Urgent"].map((type) => (
+                  <MenuItem key={type} value={type.toLowerCase()}>
+                    {type}
+                  </MenuItem>
+                ))}
+              </Select>
+
+              <Select
+                variant="outlined"
+                color="info"
+                displayEmpty
+                required
+                inputProps={{ "aria-label": "Without label" }}
+                defaultValue=""
+                value={currentFilterValues.gender}
+                onChange={(e) => {
+                  setFilters(
+                    [
+                      {
+                        field: "gender",
+                        operator: "eq",
+                        value: e.target.value,
+                      },
+                    ],
+                    "replace"
+                  );
+                }}
+              >
+                <MenuItem value="">Filter By Gender</MenuItem>
+                {["Male", "Female"].map((type) => (
                   <MenuItem key={type} value={type.toLowerCase()}>
                     {type}
                   </MenuItem>
@@ -150,6 +195,9 @@ const AllChildren = () => {
             key={child._id}
             id={child._id}
             name={child.name}
+            age={child.age}
+            gender={child.gender}
+            childId={child.childId}
             levelOfNeed={child.levelOfNeed}
             grade={child.grade}
             donations={child.donations}

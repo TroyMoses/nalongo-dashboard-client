@@ -49,12 +49,19 @@ const LeaderForm = ({
             >
               Enter Leader name
             </FormHelperText>
-            <TextField
-              fullWidth
+            <TextareaAutosize
+              minRows={1}
               required
-              id="outlined-basic"
               color="info"
-              variant="outlined"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
               {...register("name", { required: true })}
             />
           </FormControl>
@@ -104,6 +111,18 @@ const LeaderForm = ({
                 color="info"
                 displayEmpty
                 required
+                sx={{
+                  flex: 1,
+                  "& .MuiSelect-select": {
+                    color: "#919191",
+                  },
+                  "& .MuiFormLabel-root": {
+                    color: "#919191",
+                  },
+                  "& .MuiInputLabel-outlined": {
+                    color: "#919191",
+                  },
+                }}
                 inputProps={{ "aria-label": "Without label" }}
                 defaultValue="board-member"
                 {...register("leaderShipType", {
@@ -125,15 +144,21 @@ const LeaderForm = ({
               >
                 Enter Leader Donations
               </FormHelperText>
-              <TextField
-                fullWidth
-                required
-                id="outlined-basic"
-                color="info"
-                type="number"
-                variant="outlined"
-                {...register("donations", { required: true })}
-              />
+              <TextareaAutosize
+              minRows={1}
+              required
+              color="info"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
+              {...register("donations", { required: true })}
+            />
             </FormControl>
           </Stack>
 
@@ -148,12 +173,19 @@ const LeaderForm = ({
             >
               Enter Position
             </FormHelperText>
-            <TextField
-              fullWidth
+            <TextareaAutosize
+              minRows={1}
               required
-              id="outlined-basic"
               color="info"
-              variant="outlined"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
               {...register("position", { required: true })}
             />
           </FormControl>

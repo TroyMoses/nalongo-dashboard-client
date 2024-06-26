@@ -69,10 +69,10 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
             >
               <Stack direction="column">
                 <Typography fontSize={22} fontWeight={600} color="#11142D">
-                  {name}
+                  {name.toUpperCase()}
                 </Typography>
                 <Typography fontSize={16} color="#808191">
-                  Realestate Agent
+                  Dashboard Agent
                 </Typography>
               </Stack>
 
@@ -94,41 +94,6 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
                   </Box>
                 </Stack>
 
-                <Stack direction="row" flexWrap="wrap" gap="20px" pb={4}>
-                  <Stack flex={1} gap="15px">
-                    <Typography fontSize={14} fontWeight={500} color="#808191">
-                      Phone Number
-                    </Typography>
-                    <Box
-                      display="flex"
-                      flexDirection="row"
-                      alignItems="center"
-                      gap="10px"
-                    >
-                      <Phone sx={{ color: "#11142D" }} />
-                      <Typography fontSize={14} color="#11142D" noWrap>
-                        +0123 456 7890
-                      </Typography>
-                    </Box>
-                  </Stack>
-
-                  <Stack flex={1} gap="15px">
-                    <Typography fontSize={14} fontWeight={500} color="#808191">
-                      Email
-                    </Typography>
-                    <Box
-                      display="flex"
-                      flexDirection="row"
-                      alignItems="center"
-                      gap="10px"
-                    >
-                      <Email sx={{ color: "#11142D" }} />
-                      <Typography fontSize={14} color="#11142D">
-                        {email}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </Stack>
               </Stack>
             </Box>
           </Box>

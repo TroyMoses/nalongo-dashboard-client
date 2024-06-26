@@ -1,4 +1,5 @@
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
+import SupervisorAccountOutlined from "@mui/icons-material/SupervisorAccountOutlined";
 import PeopleAltOutlined from "@mui/icons-material/PeopleAltOutlined";
 import LocationCity from "@mui/icons-material/LocationCity";
 import Phone from "@mui/icons-material/Phone";
@@ -32,6 +33,10 @@ const AgentCard = ({
   email,
   avatar,
   noOfChildren,
+  noOfLeaders,
+  noOfChapterDenmark,
+  noOfChapterGermany,
+  noOfChapterSwitzerland,
 }: AgentCardProp) => {
   const { data: currentUser } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
@@ -102,7 +107,23 @@ const AgentCard = ({
         >
           <InfoBar
             icon={<PeopleAltOutlined sx={{ color: "#808191" }} />}
-            name={`${noOfChildren} Children`}
+            name={`Added ${noOfChildren} Children`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfLeaders} Leaders`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterDenmark} in Chapter Denmark`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterGermany} in Chapter Germany`}
+          />
+          <InfoBar
+            icon={<SupervisorAccountOutlined sx={{ color: "#808191" }} />}
+            name={`Added ${noOfChapterSwitzerland} in Chapter Switzerland`}
           />
         </Stack>
       </Stack>

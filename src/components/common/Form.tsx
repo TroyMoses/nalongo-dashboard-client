@@ -192,6 +192,49 @@ const Form = ({
             />
           </FormControl>
 
+          <FormControl sx={{ flex: 1 }}>
+            <FormHelperText
+              sx={{
+                fontWeight: 500,
+                margin: "10px 0",
+                fontSize: 16,
+                color: "#11142d",
+              }}
+            >
+              Select Parent Status
+            </FormHelperText>
+            <Select
+              variant="outlined"
+              color="info"
+              displayEmpty
+              required
+              sx={{
+                flex: 1,
+                "& .MuiSelect-select": {
+                  color: "#919191",
+                },
+                "& .MuiFormLabel-root": {
+                  color: "#919191",
+                },
+                "& .MuiInputLabel-outlined": {
+                  color: "#919191",
+                },
+              }}
+              {...register("parentStatus", {
+                required: true,
+              })}
+              inputProps={{ "aria-label": "Without label" }}
+              defaultValue="both-alive"
+              {...register("parentStatus", {
+                required: true,
+              })}
+            >
+              <MenuItem value="both-alive">Both-Alive</MenuItem>
+              <MenuItem value="both-deceased">Both-Deceased</MenuItem>
+              <MenuItem value="one-alive">One-Alive</MenuItem>
+            </Select>
+          </FormControl>
+
           <FormControl>
             <FormHelperText
               sx={{

@@ -93,7 +93,6 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
                     </Typography>
                   </Box>
                 </Stack>
-
               </Stack>
             </Box>
           </Box>
@@ -119,13 +118,16 @@ const Profile = ({ type, name, avatar, email, children }: ProfileProps) => (
             <ChildCard
               key={child._id}
               id={child._id}
-              levelOfNeed={child.levelOfNeed}
               name={child.name}
               age={child.age}
               gender={child.gender}
               childId={child.childId}
+              levelOfNeed={child.levelOfNeed}
+              nationality={child.nationality}
+              parentStatus={child.parentStatus}
               grade={child.grade}
               donations={child.donations}
+              yearsLeftToGraduate={child.yearsLeftToGraduate}
               photo={child.photo}
             />
           ))}

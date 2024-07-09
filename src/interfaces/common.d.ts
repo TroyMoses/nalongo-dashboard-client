@@ -24,6 +24,9 @@ export interface ChildProps {
   childId: string;
   gender: string;
   levelOfNeed: string;
+  nationality: string;
+  parentStatus: string;
+  yearsLeftToGraduate: number;
   grade: string;
   donations: string;
   photo: string;

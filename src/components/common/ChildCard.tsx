@@ -17,6 +17,9 @@ const ChildCard = ({
   gender,
   grade,
   levelOfNeed,
+  nationality,
+  parentStatus,
+  yearsLeftToGraduate,
   donations,
   photo,
 }: ChildCardProps) => {

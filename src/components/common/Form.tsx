@@ -305,6 +305,7 @@ const Form = ({
                 <MenuItem value="urgent">Urgent</MenuItem>
               </Select>
             </FormControl>
+            
             <FormControl>
               <FormHelperText
                 sx={{
@@ -332,6 +333,7 @@ const Form = ({
               {...register("donations", { required: true })}
             />
             </FormControl>
+
           </Stack>
 
           <FormControl>
@@ -361,6 +363,34 @@ const Form = ({
               {...register("grade", { required: true })}
             />
           </FormControl>
+
+          <FormControl>
+              <FormHelperText
+                sx={{
+                  fontWeight: 500,
+                  margin: "10px 0",
+                  fontSize: 16,
+                  color: "#11142d",
+                }}
+              >
+                Enter Years Left To Graduate
+              </FormHelperText>
+              <TextareaAutosize
+              minRows={1}
+              required
+              color="info"
+              style={{
+                width: "100%",
+                background: "transparent",
+                fontSize: "16px",
+                borderColor: "rgba(0,0,0,0.23)",
+                borderRadius: 6,
+                padding: 10,
+                color: "#919191",
+              }}
+              {...register("yearsLeftToGraduate", { required: true })}
+            />
+            </FormControl>
 
           <Stack direction="column" gap={1} justifyContent="center" mb={2}>
             <Stack direction="row" gap={2}>

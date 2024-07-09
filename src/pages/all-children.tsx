@@ -199,8 +199,11 @@ const AllChildren = () => {
             gender={child.gender}
             childId={child.childId}
             levelOfNeed={child.levelOfNeed}
+            nationality={child.nationality}
+            parentStatus={child.parentStatus}
             grade={child.grade}
             donations={child.donations}
+            yearsLeftToGraduate={child.yearsLeftToGraduate}
             photo={child.photo}
           />
         ))}

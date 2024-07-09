@@ -11,6 +11,9 @@ export interface FormValues {
   levelOfNeed: string;
   grade: string;
   donations: number | undefined;
+  nationality: string;
+  parentStatus: string;
+  yearsLeftToGraduate: number | undefined;
 }
 
 export interface ChildCardProps {
@@ -22,5 +25,8 @@ export interface ChildCardProps {
   grade: string;
   levelOfNeed: string;
   donations: string;
+  nationality: string;
+  parentStatus: string;
+  yearsLeftToGraduate: number | undefined;
   photo: string;
 }
